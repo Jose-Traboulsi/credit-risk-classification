@@ -1,27 +1,49 @@
-# Module 12 Report Template
+Module 12 Report
 
-## Overview of the Analysis
+Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+This analysis applies machine learning models to classify credit risk. The dataset contains financial information from loan applications, with the goal of predicting whether a loan is high or low risk.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+Steps in the Analysis:
 
-## Results
+Data Exploration: The dataset was loaded and key features were reviewed.
 
-Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
+Data Preprocessing: The dataset was split into features (X) and labels (y).
 
-* Machine Learning Model 1:
-    * Description of Model 1 Accuracy, Precision, and Recall scores.
+Model Training: A machine learning model was trained to classify loan risk.
 
-## Summary
+Model Evaluation: Accuracy, precision, and recall metrics were used to assess model performance.
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+Results
 
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+Machine Learning Model:
 
-If you do not recommend any of the models, please justify your reasoning.
+Description: Logistic Regression
+
+Accuracy Score: 99%
+
+Precision Score:
+
+Class 0: 1.00
+
+Class 1: 0.87
+
+Recall Score:
+
+Class 0: 1.00
+
+Class 1: 0.95
+
+Summary
+
+The Logistic Regression model performed exceptionally well, achieving an accuracy of 99%.
+
+It perfectly predicted healthy loans (0), with a precision and recall of 1.00, meaning no false positives or false negatives for this class.
+
+While not perfect in predicting high-risk loans (1), it still performed well, with a precision of 0.87, indicating that most high-risk loans were correctly identified, though some healthy loans were misclassified as high-risk (false positives).
+
+The recall score of 0.95 for high-risk loans demonstrates the model's strong ability to catch most high-risk loans, missing only a few (false negatives), which is an excellent hit rate.
+
+These strong results are further supported by high F-scores and weighted average values. However, given the class imbalance (only 625 high-risk loans vs. 18,759 healthy loans), the model might be favoring the majority class, so its performance should be interpreted with caution.
+
+Recommendation: Since high recall for high-risk loans is crucial in credit risk assessment, this model is suitable for minimizing false negatives and ensuring risky loans are correctly classified. If further improvements are needed, techniques to handle class imbalance (e.g., resampling, adjusting class weights, or exploring models like Random Forest or Gradient Boosting) could be considered.
